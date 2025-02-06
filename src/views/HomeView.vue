@@ -3,14 +3,15 @@ import { useUsers } from '@/composables/queries/useUsers.ts'
 import { ref } from 'vue'
 
 const page = ref(1)
-const { data: users, isPending, status, error: userFetchError } = useUsers(page.value)
+const { data: users, isPending, status, error: userFetchError } = useUsers(page)
 </script>
 
 <template>
   <h1>
     Home
+    <input v-model.number="page" />
     <small>
-      <router-link to="/about">go about</router-link>
+      <router-link to="/about">go about {{ page }}</router-link>
     </small>
   </h1>
   <ul>

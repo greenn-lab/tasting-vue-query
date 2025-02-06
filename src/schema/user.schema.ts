@@ -31,7 +31,4 @@ export const UserSchema = z.object({
   company: CompanySchema.optional()
 })
 
-export const UsersSchema = z.array(UserSchema)
-
 export type User = z.infer<typeof UserSchema>
-export type Users = z.infer<typeof UsersSchema>
